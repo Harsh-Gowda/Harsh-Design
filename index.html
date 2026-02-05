@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh DZN | Tech Entrepreneur Portfolio</title>
+    <!-- SVG Favicon Data URI -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 15C17.2 15 15 17.2 15 20V80C15 82.8 17.2 85 20 85H35V15H20Z' fill='white'/%3E%3Crect x='35' y='42' width='22' height='16' fill='white'/%3E%3Cpath d='M57 15 L 92 48.6 C 93.6 50.1 93.6 52.7 92 54.2 L 57 89.2 V 68 L 73 51.4 L 57 35 V 15Z' fill='%2300d4ff'/%3E%3Crect x='82' y='12' width='10' height='10' rx='2' transform='rotate(45 87 17)' fill='%23F97316'/%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            /* Prevent pull-to-refresh and rubber-banding */
+            overscroll-behavior: none;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-mono { font-family: 'Space+Grotesk', sans-serif; }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00d4ff;
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(124, 58, 237, 0.5);
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.15s ease-out;
+        }
+
+        .glitch {
+          position: relative;
+        }
+        .glitch:hover::before {
+          content: attr(data-text);
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: #0a0a0f;
+          clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+          transform: translate(-5px, -2px);
+          opacity: 0.8;
+          color: #ff00ff;
+          z-index: -1;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom": "https://esm.sh/react-dom@^19.2.4",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.4/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.31.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "gsap": "https://esm.sh/gsap@^3.12.5",
+    "three": "https://esm.sh/three@^0.170.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@^9.0.0",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@^10.0.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
