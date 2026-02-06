@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact" className="px-5 py-2 rounded-full bg-[#00d4ff] text-black font-bold text-sm hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all">
+            <Link to="/contact" className="px-5 py-2 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold text-sm hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all">
               Let's Talk
             </Link>
           </div>

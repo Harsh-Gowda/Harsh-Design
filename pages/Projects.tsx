@@ -414,14 +414,14 @@ const Projects: React.FC = () => {
                               {project.internalLink ? (
                                  <Link
                                     to={project.internalLink}
-                                    className="px-6 py-3 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors flex items-center gap-2"
+                                    className="px-6 py-3 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold text-sm hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all flex items-center gap-2"
                                  >
                                     View Deployment <ArrowUpRight size={16} />
                                  </Link>
                               ) : (
                                  <a
                                     href={project.link || '#'}
-                                    className="px-6 py-3 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors flex items-center gap-2"
+                                    className="px-6 py-3 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold text-sm hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all flex items-center gap-2"
                                  >
                                     View Deployment <ArrowUpRight size={16} />
                                  </a>

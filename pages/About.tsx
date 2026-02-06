@@ -430,7 +430,7 @@ const About: React.FC = () => {
               download
               onMouseEnter={() => setActiveButton('resume')}
               onMouseLeave={() => setActiveButton(null)}
-              className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#F97316] text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:scale-105 transition-all group border border-white/5 w-64 justify-center relative"
+              className="flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:scale-105 transition-all group border border-white/5 w-64 justify-center relative"
             >
               <Download size={20} className="group-hover:animate-bounce" />
               Resume

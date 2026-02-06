@@ -267,7 +267,7 @@ const Blog: React.FC = () => {
                 placeholder="dev@example.com"
                 className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#00d4ff] outline-none"
               />
-              <button className="bg-[#00d4ff] text-black font-bold px-6 py-3 rounded-xl hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all">
+              <button className="bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold px-6 py-3 rounded-xl hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all">
                 Subscribe
               </button>
             </div>

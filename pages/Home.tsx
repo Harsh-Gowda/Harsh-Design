@@ -261,7 +261,7 @@ const Home: React.FC = () => {
           >
             <Link
               to="/contact"
-              className="group relative px-8 py-4 rounded-xl bg-[#F97316] text-white font-bold text-lg overflow-hidden shadow-[0_0_30px_rgba(249,115,22,0.3)] transition-all hover:scale-105 flex justify-center items-center"
+              className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold text-lg overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.3)] transition-all hover:scale-105 flex justify-center items-center"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative flex items-center gap-2">

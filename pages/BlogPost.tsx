@@ -20,7 +20,7 @@ const blogPosts: Record<string, any> = {
     readTime: "8 min read",
     category: "Automation",
     author: "Harsh DZN",
-    authorRole: "Founder & Lead Dev",
+    authorRole: "Designer & Developer",
     image: "/Asset/safar.webp",
     projectId: "safarbot",
     content: [
@@ -47,7 +47,7 @@ const blogPosts: Record<string, any> = {
     readTime: "12 min read",
     category: "Analytics",
     author: "Harsh DZN",
-    authorRole: "Founder & Lead Dev",
+    authorRole: "Designer & Developer",
     image: "/Asset/trademind.webp",
     projectId: "trademind",
     content: [
@@ -74,7 +74,7 @@ const blogPosts: Record<string, any> = {
     readTime: "6 min read",
     category: "Discovery",
     author: "Harsh DZN",
-    authorRole: "Founder & Lead Dev",
+    authorRole: "Designer & Developer",
     image: "/Asset/Pickry.webp",
     projectId: "pickry",
     content: [
@@ -145,7 +145,7 @@ const ProjectEmbed: React.FC<{ projectId: string }> = ({ projectId }) => {
           <p className="text-sm text-gray-400 mb-4 font-mono">{p.desc}</p>
           <Link
             to={p.link}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F97316] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#ff8636] transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white text-xs font-bold uppercase tracking-wider hover:shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all"
           >
             Explore Project <ArrowRight size={14} />
           </Link>
@@ -311,7 +311,7 @@ const BlogPost: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsShareOpen(!isShareOpen)}
-                className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 hover:bg-white/5 transition-all text-sm font-bold text-white group"
+                className="flex items-center gap-2 text-white font-bold bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] px-6 py-3 rounded-xl hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all text-sm group"
               >
                 <Share2 size={16} className="group-hover:scale-110 transition-transform" /> Share Article
               </button>
@@ -412,7 +412,7 @@ const BlogPost: React.FC = () => {
               <h4 className="font-bold text-white mb-2">Build in Public</h4>
               <p className="text-xs text-gray-400 mb-4">Get the source code for this project sent to your inbox.</p>
               <input type="email" placeholder="Email address" className="w-full bg-[#0B1120] border border-white/10 rounded-lg px-3 py-2 text-xs text-white mb-3 focus:border-[#00d4ff] outline-none" />
-              <button className="w-full bg-[#00d4ff] text-black text-xs font-bold py-2 rounded-lg hover:brightness-110">Send Code</button>
+              <button className="w-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white text-xs font-bold py-2 rounded-lg hover:brightness-110">Send Code</button>
             </div>
           </div>
         </aside>

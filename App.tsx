@@ -77,7 +77,7 @@ const Layout: React.FC = () => {
           href="https://wa.me/+918088727376"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-[#1E5aaf] shadow-lg shadow-[#1E5aaf]/30 border border-white/10 flex items-center gap-2 group hover:bg-[#00d4ff] transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] shadow-lg shadow-[#7c3aed]/30 border border-white/10 flex items-center gap-2 group hover:scale-110 transition-all duration-300"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
