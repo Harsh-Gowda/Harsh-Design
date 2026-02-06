@@ -5,14 +5,14 @@ import {
   MessageSquare, Calendar, Mail, CheckCircle2,
   Layout, Database, ShoppingBag, Globe, Smartphone,
   ChevronLeft, ChevronRight, Star, Cpu, MousePointer2,
-  Shield, Layers, Rocket, Lock,
+  Shield, Layers, Rocket, Lock, Send,
   Braces, Command, Hash, FileJson, GitBranch
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
 import PickryProductImg from '../Asset/Pickry.webp';
 // @ts-ignore
-import TradeProductImg from '../Asset/Trade.webp';
+import TradeProductImg from '../Asset/trademind.webp';
 // @ts-ignore
 import SafarProductImg from '../Asset/safar.webp';
 
@@ -139,16 +139,16 @@ const Home: React.FC = () => {
   const projects = [
     {
       title: "Pickry",
-      category: "Affiliate Platform",
+      category: "Discovery Platform",
       tech: ["React", "Node.js", "Tailwind", "PostgreSQL"],
-      desc: "A high-performance deal discovery engine featuring automated price tracking, real-time alerts, and a scalable affiliate network architecture designed for maximum conversion.",
+      desc: "A high-performance product discovery engine featuring real-time curation, smart filtering, and a seamless shopping experience designed for modern consumers.",
       link: "/pickry",
       image: PickryProductImg,
       className: "md:col-span-2"
     },
     {
       title: "TradeMind",
-      category: "Fintech SaaS",
+      category: "Analytics SaaS",
       tech: ["React", "Supabase", "Chart.js"],
       desc: "A psychology-first trading journal that empowers traders with data-driven insights, behavioral analysis, and a suite of tools to master their market mindset.",
       link: "/trademind",
@@ -157,7 +157,7 @@ const Home: React.FC = () => {
     },
     {
       title: "Magnific Redesign",
-      category: "Client Work",
+      category: "Office Work",
       tech: ["WordPress", "Elementor", "PHP", "SEO"],
       desc: "A comprehensive overhaul for a premium design agency, focusing on cutting-edge aesthetics, 40% faster load times, and a seamless responsive user experience.",
       link: "/projects",
@@ -166,9 +166,9 @@ const Home: React.FC = () => {
     },
     {
       title: "Safar Bot",
-      category: "AI Automation",
+      category: "AI Travel Assistant",
       tech: ["WhatsApp API", "OpenAI", "Node.js"],
-      desc: "An intelligent AI travel agent capable of handling complex bookings, providing personalized recommendations, and automating 24/7 customer engagement via WhatsApp.",
+      desc: "An intelligent AI travel consultant that provides personalized recommendations, real-time itinerary planning, and 24/7 travel support directly via WhatsApp.",
       link: "/safarbot",
       image: SafarProductImg,
       className: "md:col-span-2"
@@ -228,17 +228,19 @@ const Home: React.FC = () => {
           {/* Main Copy */}
           <div className="space-y-6 md:space-y-8">
             <div className="h-6 flex justify-center items-center">
-              <TypingEffect text=" Agency Grade · Scalable · Secure " speed={50} />
+              <TypingEffect text=" AI Automation · React · Web Dev · WordPress  " speed={50} />
             </div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.1] tracking-tight px-2"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.1] tracking-tight px-3 py-2"
             >
-              Architecting Digital Ecosystems <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#06B6D4] to-[#3B82F6]">For Scale & Speed.</span>
+              Your Developer.
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] py-3">Your Growth Partner.
+              </span>
             </motion.h1>
 
             <motion.p
@@ -247,8 +249,7 @@ const Home: React.FC = () => {
               transition={{ delay: 0.6 }}
               className="text-sm sm:text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto leading-relaxed font-normal px-4"
             >
-              Expertise in high-frequency trading dashboards, AI travel agents, and scalable affiliate networks. Building the future of commerce.
-            </motion.p>
+              Custom plugins, automated workflows, and conversion-optimized stores — shipped clean, delivered fast.            </motion.p>
           </div>
 
           {/* CTAs */}
@@ -473,10 +474,10 @@ const Home: React.FC = () => {
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white mb-4">
-              Your Project + My Code = <span className="text-[#06B6D4]">Launch</span>
+              Architecting High-Performance <span className="text-[#06B6D4]">Digital Solutions</span>
             </h2>
             <p className="text-base md:text-lg text-gray-400">
-              Currently accepting <span className="text-[#F97316] font-bold"> new clients</span> for ths Year.
+              Now Onboarding <span className="text-[#F97316] font-bold"> Selective Partnerships</span> for this year.
             </p>
           </div>
 
@@ -485,11 +486,11 @@ const Home: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest">Name</label>
-                  <input type="text" placeholder="John Doe" className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all" />
+                  <input type="text" placeholder="Harsh" className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest">Email</label>
-                  <input type="email" placeholder="john@company.com" className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all" />
+                  <input type="email" placeholder="harsh@company.com" className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all" />
                 </div>
               </div>
 
@@ -497,15 +498,16 @@ const Home: React.FC = () => {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest">Project Type</label>
                   <select className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all appearance-none cursor-pointer">
+                    <option>React/Fullstack Application</option>
                     <option>WordPress / WooCommerce</option>
-                    <option>React Application</option>
-                    <option>Affiliate System</option>
+                    <option>AI Automation</option>
                     <option>Custom Development</option>
+                    <option>Other Inquiry</option>
                   </select>
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest">Budget</label>
-                  <input type="text" placeholder="e.g. $1,000 or ₹80,000" className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all" />
+                  <input type="text" placeholder="Enter your budget" className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all" />
                 </div>
               </div>
 
@@ -514,8 +516,8 @@ const Home: React.FC = () => {
                 <textarea rows={4} placeholder="Tell me about your project goals..." className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#06B6D4] outline-none transition-all resize-none"></textarea>
               </div>
 
-              <button className="w-full py-4 rounded-xl bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all">
-                Initialize Launch Sequence
+              <button className="w-full py-4 rounded-xl bg-gradient-to-r from-[#00d4ff] to-[#7c3aed] text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:scale-[1.02] transition-all flex items-center justify-center gap-2 group">
+                Deploy Your Vision <Rocket size={20} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
 
@@ -523,12 +525,10 @@ const Home: React.FC = () => {
               <a href="mailto:harshgowdaujire@gmail.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
                 <Mail size={16} /> harshgowdaujire@gmail.com
               </a>
-              <a href="https://wa.me/91XXXXXXXXXX" className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#25D366] transition-colors">
+              <a href="https://wa.me/+918088727376" className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#25D366] transition-colors">
                 <MessageSquare size={16} /> WhatsApp Quick Chat
               </a>
-              <a href="#" className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#06B6D4] transition-colors">
-                <Calendar size={16} /> Book 15-min Call
-              </a>
+
             </div>
           </div>
         </div>
@@ -536,7 +536,7 @@ const Home: React.FC = () => {
 
       {/* FOOTER */}
       <footer className="py-8 text-center text-xs text-gray-600 font-mono border-t border-white/5 px-4">
-        <p>Built by Harsh · Hosted on Harsh DZN · Commission links disclosed.</p>
+        <p>Built by Harsh · Full-Stack Developer & AI Specialist · Available for Remote Work</p>
       </footer>
 
     </div>

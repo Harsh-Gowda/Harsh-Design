@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, Suspense, useMemo } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { 
-  Rocket, Code, TrendingUp, 
+import {
+  Rocket, Code, TrendingUp,
   Bug, Eye, EyeOff, Github,
   GraduationCap, Laptop, Server, Download,
   Layers, Shield, Terminal
@@ -20,7 +20,7 @@ const PointLight = 'pointLight' as any;
 // --- 3D Background & Portrait Components ---
 const ParticlePortrait = () => {
   const pointsRef = useRef<THREE.Points>(null!);
-  
+
   useFrame((state) => {
     if (pointsRef.current) {
       pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.1;
@@ -102,7 +102,7 @@ const SkillsConstellation = () => {
     <Group ref={groupRef}>
       <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-      
+
       {/* Connections */}
       {lines.map((line) => (
         <Line
@@ -119,22 +119,22 @@ const SkillsConstellation = () => {
       {skills.map((skill, i) => (
         <Float key={i} speed={activeSkill === skill.name ? 5 : 2} rotationIntensity={1} floatIntensity={2}>
           <Group position={skill.pos as [number, number, number]}>
-            <Mesh 
+            <Mesh
               onClick={(e: any) => { e.stopPropagation(); setActiveSkill(activeSkill === skill.name ? null : skill.name); }}
               onPointerOver={() => document.body.style.cursor = 'pointer'}
               onPointerOut={() => document.body.style.cursor = 'auto'}
               scale={activeSkill === skill.name ? 1.5 : 1}
             >
               <SphereGeometry args={[0.3, 32, 32]} />
-              <MeshDistortMaterial 
-                color={activeSkill === skill.name ? "#ffffff" : skill.color} 
+              <MeshDistortMaterial
+                color={activeSkill === skill.name ? "#ffffff" : skill.color}
                 emissive={activeSkill === skill.name ? skill.color : "#000000"}
                 emissiveIntensity={activeSkill === skill.name ? 2 : 0}
-                speed={5} 
-                distort={0.4} 
+                speed={5}
+                distort={0.4}
               />
             </Mesh>
-            
+
             <Text
               position={[0, 0.5, 0]}
               fontSize={0.25}
@@ -168,14 +168,14 @@ const SkillsConstellation = () => {
 const TimelineNode = ({ year, title, role, desc, tags, icon: Icon, index }: any) => {
   const isEven = index % 2 === 0;
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, x: isEven ? -50 : 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       className={`relative mb-24 md:mb-32 flex w-full justify-center md:justify-between items-center ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}
     >
       <div className="hidden md:block w-5/12" />
-      
+
       {/* Center Node Icon */}
       <div className="z-10 absolute left-4 md:left-1/2 md:-translate-x-1/2 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-[#0B1120] border-2 border-[#06B6D4] text-[#06B6D4] shadow-[0_0_20px_rgba(6,182,212,0.4)]">
         <Icon size={24} className="md:w-7 md:h-7" />
@@ -187,12 +187,12 @@ const TimelineNode = ({ year, title, role, desc, tags, icon: Icon, index }: any)
           <span className="inline-block px-3 py-1 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] text-xs font-bold font-mono border border-[#06B6D4]/20 mb-3">
             {year}
           </span>
-          
+
           <h3 className="text-2xl font-bold font-heading text-white group-hover:text-[#06B6D4] transition-colors">{title}</h3>
           {role && <p className="text-sm font-bold text-gray-400 mb-3">{role}</p>}
-          
+
           <p className="text-gray-400 leading-relaxed font-sans text-sm mb-4">{desc}</p>
-          
+
           {/* Skill Tags */}
           <div className="flex flex-wrap gap-2">
             {tags && tags.map((tag: string, i: number) => (
@@ -214,23 +214,23 @@ const About: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef(null);
   const timelineRef = useRef(null);
-  
+
   // Use scroll specifically for the timeline section
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ["start center", "end center"]
   });
-  
+
   const pathLength = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
-  const typingText = "while (alive) { create(); learn(); repeat(); }";
+  const typingText = "while (alive) { innovate(); architect(); scale(); }";
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     let i = 0;
     const interval = setInterval(() => {
       setDisplayText(typingText.slice(0, i));
@@ -248,45 +248,45 @@ const About: React.FC = () => {
   }, []);
 
   const timelineData = [
-    { 
-      year: "2021 - 2023", 
-      title: "The Foundation", 
+    {
+      year: "2021 - 2023",
+      title: "Strategic Foundation",
       role: "B.Voc Software & App Dev",
-      desc: "Built a strong base in logic and algorithms at SDM College. Achieved 76% aggregate. Earlier academic excellence: SSLC (84.48%), PU (68.83%).",
-      tags: ["HTML", "CSS", "JavaScript", "Algorithms"], 
-      icon: GraduationCap 
+      desc: "Cultivated a deep understanding of software engineering principles and algorithmic efficiency at SDM College. Focused on full-stack architecture and clean code paradigms. Achieved 76% aggregate.",
+      tags: ["Software Engineering", "Algorithms", "System Design"],
+      icon: GraduationCap
     },
-    { 
-      year: "Aug - Dec 2023", 
-      title: "First Code", 
+    {
+      year: "Aug - Dec 2023",
+      title: "Scalable Engineering",
       role: "Web Developer @ Isarva Infotech",
-      desc: "Built WordPress sites end-to-end with Elementor and WooCommerce hooks. Leveraged modern frontend tools, integrated Bootstrap & Tailwind for custom responsive layouts, and collaborated with design teams.", 
-      tags: ["WordPress", "PHP", "Frontend Tools", "Elementor", "Bootstrap"],
-      icon: Laptop 
+      desc: "Engineered production-ready web ecosystems with a focus on modularity and high performance. Leveraged professional deployment workflows and collaborated on complex responsive themes for enterprise clients.",
+      tags: ["Enterprise WordPress", "Performance Opt.", "CI/CD"],
+      icon: Laptop
     },
-    { 
-      year: "Mar 2024 - Present", 
-      title: "Real Impact", 
+    {
+      year: "Mar 2024 - Present",
+      title: "Architectural Ownership",
       role: "WordPress & Frontend Dev @ Magnific Designer",
-      desc: "Designed custom CRM tools and frontend interfaces using React. Developed specialized plugins, managed magnific.in infrastructure, and optimized WooCommerce flows.", 
-      tags: ["React", "CRM Tool", "Frontend", "Plugin Dev", "WooCommerce"],
-      icon: Server 
+      desc: "Leading the development of custom CRM infrastructures and high-fidelity React interfaces. Responsible for end-to-end architectural decisions, specialized plugin engineering, and optimizing business-critical workflows.",
+      tags: ["React Architecture", "CRM Systems", "Strategic Dev"],
+      icon: Server
     },
-    { 
-      year: "Present", 
-      title: "The Evolution", 
+    {
+      year: "2026 ROADMAP",
+      title: "Venture Discovery",
       role: "Harsh DZN",
-      desc: "Building Pickry (Product List), TradeMind (Trading Sychology), and Safar Bot (AI Travel). Focusing on React ecosystem, modern CI/CD workflows, and full-stack growth.", 
-      tags: ["React", "Node.js", "Full-Stack", "Growth"],
-      icon: Rocket 
+      desc: "Scaling a specialized product suite including Pickry, TradeMind, and Safar Bot. Focusing on hyper-performant React ecosystems, AI-driven automation, and building selective partnership channels for high-growth ventures.",
+      tags: ["Product Strategy", "AI Automation", "Selective Growth"],
+      icon: Rocket
     },
   ];
 
   return (
     <div className={`min-h-screen transition-colors duration-700 ${focusMode ? 'bg-[#050508]' : 'bg-[#0a0a0f]'}`}>
-      
+
       {/* Focus Mode Toggle */}
-      <button 
+      <button
         onClick={() => setFocusMode(!focusMode)}
         className="fixed top-24 right-8 z-[70] p-3 rounded-full glass border-white/10 hover:border-[#00d4ff]/50 transition-all text-white"
         title="Toggle Focus Mode"
@@ -309,7 +309,7 @@ const About: React.FC = () => {
         )}
 
         <div className="z-10 text-center px-6">
-          <motion.p 
+          <motion.p
             className="font-mono text-[#00d4ff] text-xl mb-6 h-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -317,7 +317,7 @@ const About: React.FC = () => {
             {displayText}
             <span className="animate-pulse ml-1">|</span>
           </motion.p>
-          
+
           <AnimatePresence>
             {typingComplete && (
               <motion.div
@@ -330,16 +330,16 @@ const About: React.FC = () => {
                   HARSH <span className="text-gradient">DZN</span>
                 </h1>
                 <p className="text-2xl md:text-3xl font-mono text-gray-400 max-w-2xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>Builder.</motion.span>
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>Problem Solver.</motion.span>
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>Eternal Student.</motion.span>
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>Product Strategist.</motion.span>
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>Full-Stack Architect.</motion.span>
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>Growth Specialist.</motion.span>
                 </p>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
-        <motion.div 
+        <motion.div
           className="absolute bottom-12 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
@@ -351,12 +351,12 @@ const About: React.FC = () => {
       {/* Timeline Path */}
       <section ref={timelineRef} className="relative max-w-5xl mx-auto px-6 py-16 md:py-32">
         <h2 className="text-3xl md:text-5xl font-heading font-bold text-center mb-16 md:mb-32">Professional <span className="text-[#06B6D4]">Journey</span></h2>
-        
+
         {/* The Animated Line */}
         {!focusMode && (
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 md:-translate-x-1/2 block">
             <div className="h-full w-full bg-white/5 rounded-full overflow-hidden">
-              <motion.div 
+              <motion.div
                 style={{ scaleY: pathLength }}
                 className="w-full h-full bg-gradient-to-b from-[#06B6D4] to-[#14B8A6] origin-top shadow-[0_0_20px_rgba(6,182,212,0.8)]"
               />
@@ -376,56 +376,56 @@ const About: React.FC = () => {
           {!focusMode && (
             <div className="absolute inset-0 -top-8 bottom-auto h-[120px] pointer-events-none z-0 hidden md:block">
               <svg className="w-full h-full" viewBox="0 0 600 120" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#14B8A6" />
-                        <stop offset="100%" stopColor="#06B6D4" />
-                    </linearGradient>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge>
-                          <feMergeNode in="coloredBlur"/>
-                          <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                  </defs>
+                <defs>
+                  <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#14B8A6" />
+                    <stop offset="100%" stopColor="#06B6D4" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
 
-                  <motion.path
-                    d="M 300 0 L 300 25 Q 300 35 300 35 L 300 35 Q 300 35 300 45 L 300 100"
-                    animate={{
-                      d: activeButton === 'resume'
-                        ? "M 300 0 L 300 25 Q 300 35 290 35 L 175 35 Q 165 35 165 45 L 165 95"
-                        : activeButton === 'github'
+                <motion.path
+                  d="M 300 0 L 300 25 Q 300 35 300 35 L 300 35 Q 300 35 300 45 L 300 100"
+                  animate={{
+                    d: activeButton === 'resume'
+                      ? "M 300 0 L 300 25 Q 300 35 290 35 L 175 35 Q 165 35 165 45 L 165 95"
+                      : activeButton === 'github'
                         ? "M 300 0 L 300 25 Q 300 35 310 35 L 425 35 Q 435 35 435 45 L 435 95"
                         : "M 300 0 L 300 25 Q 300 35 300 35 L 300 35 Q 300 35 300 45 L 300 100",
-                      stroke: activeButton ? "#06B6D4" : "url(#lineGrad)",
-                      filter: activeButton ? "url(#glow)" : "none",
-                      opacity: 1
-                    }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    fill="none"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
+                    stroke: activeButton ? "#06B6D4" : "url(#lineGrad)",
+                    filter: activeButton ? "url(#glow)" : "none",
+                    opacity: 1
+                  }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  fill="none"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
 
-                  <motion.circle
-                    r="4"
-                    fill="#06B6D4"
-                    animate={{
-                      cx: activeButton === 'resume' ? 165 : activeButton === 'github' ? 435 : 300,
-                      cy: activeButton ? 95 : 100,
-                      scale: activeButton ? 1.3 : 0.8,
-                      opacity: 1
-                    }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  />
+                <motion.circle
+                  r="4"
+                  fill="#06B6D4"
+                  animate={{
+                    cx: activeButton === 'resume' ? 165 : activeButton === 'github' ? 435 : 300,
+                    cy: activeButton ? 95 : 100,
+                    scale: activeButton ? 1.3 : 0.8,
+                    opacity: 1
+                  }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                />
               </svg>
             </div>
           )}
 
           {/* Buttons Row */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-24 relative z-10 pt-8 md:pt-24">
-            <a 
+            <a
               href="/resume.pdf"
               download
               onMouseEnter={() => setActiveButton('resume')}
@@ -436,8 +436,8 @@ const About: React.FC = () => {
               Resume
             </a>
 
-            <a 
-              href="https://github.com/harshdzn" 
+            <a
+              href="https://github.com/harshdzn"
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={() => setActiveButton('github')}
@@ -473,25 +473,25 @@ const About: React.FC = () => {
         <h2 className="text-3xl md:text-5xl font-heading font-bold text-center mb-12 md:mb-24">The <span className="text-[#ff00ff]">Why</span></h2>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {[
-            { 
-              title: "Build First, Perfect Later", 
-              story: "In the desert of overthinking, I found the oasis of the MVP. Speed is the only real competitive advantage in early-stage product development.",
+            {
+              title: "Agile Validation & Scalable Design",
+              story: "In the landscape of high-stakes product development, speed to market is the only true competitive advantage. I build for immediate validation while architecting for future scale.",
               color: "#00d4ff"
             },
-            { 
-              title: "Automation is Freedom", 
-              story: "If a human has to do it twice, a machine should do it forever. I build systems that buy back time for human creativity.",
+            {
+              title: "Systems Over Processes",
+              story: "I believe in operational excellence through engineering. If a task can be quantified and automated, it belongs to the machine, freeing human intelligence for strategic innovation.",
               color: "#7c3aed"
             }
           ].map((item, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               whileHover={{ rotateY: 5, rotateX: 5, z: 20 }}
               className="glass p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] border-white/5 relative group cursor-pointer"
             >
-              <div 
-                className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-3xl opacity-20 group-hover:opacity-60 transition-opacity" 
-                style={{ backgroundColor: item.color }} 
+              <div
+                className="absolute -top-6 -right-6 w-24 h-24 rounded-full blur-3xl opacity-20 group-hover:opacity-60 transition-opacity"
+                style={{ backgroundColor: item.color }}
               />
               <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 md:mb-6">{item.title}</h3>
               <p className="text-base md:text-lg text-gray-400 font-mono leading-relaxed">{item.story}</p>
@@ -510,15 +510,15 @@ const About: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-left">
             {[
-              { 
-                title: "The 'Dead Link' App", 
-                fail: "Spent 6 months building a social aggregator with zero users.", 
-                lesson: "Marketing starts before the first line of code. Build in public." 
+              {
+                title: "The 'Dead Link' Experiment",
+                fail: "Launched a complex social aggregator with zero initial market resonance.",
+                lesson: "Market validation must precede architectural deployment. Build public resonance first."
               },
-              { 
-                title: "The 100-hour Bug", 
-                fail: "A production crash that took 4 days to trace back to a single semicolon.", 
-                lesson: "Unit tests are not a luxury; they are insurance for sanity." 
+              {
+                title: "The Production Bottleneck",
+                fail: "A high-traffic system failure traced to an oversight in environmental configuration.",
+                lesson: "Rigorous testing and environment parity are not overhead; they are critical risk mitigation."
               }
             ].map((exhibit, i) => (
               <div key={i} className="glass p-6 md:p-8 rounded-2xl border-red-500/10 group overflow-hidden">

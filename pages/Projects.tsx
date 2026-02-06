@@ -38,10 +38,10 @@ const Projects: React.FC = () => {
       },
       {
          title: "Safar Bot",
-         desc: "An AI-powered travel assistant built for WhatsApp, connecting users with real-time affiliate deals from top travel platforms.",
+         desc: "An AI-powered travel assistant built for WhatsApp, providing curated itinerary planning and real-time travel recommendations.",
          tech: ["Node.js", "Express", "OpenAI", "Puppeteer", "WhatsApp API"],
-         problem: "Traditional travel booking sites are overwhelming and slow for mobile users.",
-         solution: "A lightweight, chat-based UI that delivers curated deals directly in WhatsApp.",
+         problem: "Planning travel across multiple platforms is fragmented and time-consuming for mobile users.",
+         solution: "A lightweight, AI-driven chat interface that delivers optimized travel plans directly in WhatsApp.",
          internalLink: "/safarbot",
          github: "#",
          featured: true,
@@ -49,26 +49,16 @@ const Projects: React.FC = () => {
       },
       {
          title: "Pickry",
-         desc: "A curated shopping platform with intelligent deal comparison and conversion tracking. Features flash sale engines and real-time affiliate analytics.",
+         desc: "A curated discovery platform with intelligent product comparison and personal collection tracking. Features real-time price monitoring and smart shopping analytics.",
          tech: ["React", "Recharts", "Framer Motion", "Tailwind"],
-         problem: "Users are overwhelmed by choice; creators struggle to track affiliate performance effectively.",
-         solution: "A conversion-optimized UI that simplifies discovery for shoppers and maximizes earnings for creators.",
+         problem: "Users are overwhelmed by endless options and struggle to track products across multiple stores.",
+         solution: "A streamlined discovery interface that simplifies product research and helps users build intentional collections.",
          internalLink: "/pickry",
          github: "#",
          featured: true,
          color: "#0D7377"
-      },
-      {
-         title: "NomadPay",
-         desc: "Cryptocurrency payment gateway optimized for travel-related services and remote worker invoices. Zero-knowledge proof invoicing.",
-         tech: ["Solidity", "Web3.js", "Next.js", "Polygon"],
-         problem: "Freelancers lose 5-10% in forex fees and wait days for international transfers.",
-         solution: "Instant stablecoin settlements with automated tax compliance receipts.",
-         link: "#",
-         github: "#",
-         featured: true,
-         color: "#ff6b35"
       }
+
    ];
 
    // --- High-Fidelity Visual Components ---
@@ -158,7 +148,7 @@ const Projects: React.FC = () => {
          <motion.div
             initial={{ y: 50 }}
             whileInView={{ y: 0 }}
-            transition={{ type: "spring", bounce: 0.4 }}
+            transition={{ type: "spring", bounce: 0.5 }}
             className="relative w-64 h-[85%] bg-white rounded-[2rem] border-8 border-white shadow-2xl overflow-hidden flex flex-col"
          >
             {/* Header */}
@@ -356,13 +346,13 @@ const Projects: React.FC = () => {
          <div className="max-w-7xl mx-auto">
             <div className="flex flex-col items-center text-center mb-24 max-w-3xl mx-auto">
                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#00d4ff] text-xs font-bold uppercase tracking-widest mb-6">
-                  <Layers size={12} /> Portfolio 2024
+                  <Layers size={12} /> Curated Work This Year
                </div>
-               <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white mb-6 tracking-tight">
-                  Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]">Works</span>
+               <h1 className="text-4xl md:text-7xl font-heading font-extrabold text-white mb-6 tracking-tight">
+                  Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]">Deployments</span>
                </h1>
                <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed">
-                  A curation of high-impact applications focused on <span className="text-white font-medium">Fintech</span>, <span className="text-white font-medium">Automation</span>, and <span className="text-white font-medium">E-Commerce</span>. Built for scale, designed for users.
+                  Fast code. Clean architecture. Zero shortcuts. <span className="text-white font-medium">I build digital products </span> that load instantly, convert consistently, and won't break when traffic hits.
                </p>
             </div>
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { motion as motionBase } from 'framer-motion';
@@ -42,7 +42,7 @@ const Layout: React.FC = () => {
   return (
     <div className={`min-h-screen ${isAppMode ? '' : 'bg-[#0a0a0f]'} text-white selection:bg-[#00d4ff]/30`}>
       <CustomCursor />
-      
+
       {/* Only show Portfolio UI elements if NOT in App Mode */}
       {!isAppMode && (
         <>
@@ -50,12 +50,13 @@ const Layout: React.FC = () => {
           <Navbar />
         </>
       )}
-      
+
       <main className={!isAppMode && !isHome ? "pt-20" : ""}>
         <ScrollToTop />
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
@@ -69,12 +70,12 @@ const Layout: React.FC = () => {
       </main>
 
       {!isAppMode && <Footer />}
-      
+
       {/* Floating WhatsApp CTA - Only on Portfolio */}
       {!isAppMode && (
-        <motion.a 
-          href="https://wa.me/safarbot" 
-          target="_blank" 
+        <motion.a
+          href="https://wa.me/+918088727376"
+          target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-[#1E5aaf] shadow-lg shadow-[#1E5aaf]/30 border border-white/10 flex items-center gap-2 group hover:bg-[#00d4ff] transition-all duration-300"
           initial={{ scale: 0, opacity: 0 }}

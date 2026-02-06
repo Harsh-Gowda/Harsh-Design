@@ -73,17 +73,22 @@ const Navbar: React.FC = () => {
             <div className="w-10 h-10 flex items-center justify-center">
               <BrandLogo className="w-full h-full" monochrome={false} />
             </div>
-            <span className="font-heading font-bold text-2xl tracking-tighter text-[#FAFAFA] leading-none mt-0.5">
-              Harsh DZN
-            </span>
+            <div className="flex items-center gap-1.5 leading-none mt-0.5">
+              <span className="font-heading font-bold text-2xl tracking-tighter text-[#FAFAFA]">
+                Harsh
+              </span>
+              <span className="font-heading font-bold text-2xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]">
+                DZN
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                to={link.path} 
+              <Link
+                key={link.name}
+                to={link.path}
                 className={`text-sm font-medium transition-colors hover:text-[#00d4ff] ${location.pathname === link.path ? 'text-[#00d4ff]' : 'text-gray-400'}`}
               >
                 {link.name}
@@ -95,8 +100,8 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Toggle Button */}
-          <button 
-            className={`md:hidden text-white relative z-[70] p-2 hover:bg-white/5 rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-0 pointer-events-none' : 'opacity-100 scale-100'}`} 
+          <button
+            className={`md:hidden text-white relative z-[70] p-2 hover:bg-white/5 rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-0 pointer-events-none' : 'opacity-100 scale-100'}`}
             onClick={() => setIsOpen(true)}
             aria-label="Open Menu"
           >
@@ -133,30 +138,33 @@ const Navbar: React.FC = () => {
             <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#7c3aed]/10 rounded-full blur-[100px] pointer-events-none" />
 
             {/* Menu Content */}
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               className="flex flex-col items-center justify-center w-full px-6"
             >
               {/* Navigation Links */}
               <div className="space-y-6 text-center mb-12">
                 {navLinks.map((link, i) => {
-                   const isActive = location.pathname === link.path;
-                   return (
+                  const isActive = location.pathname === link.path;
+                  return (
                     <motion.div variants={itemVariants} key={link.name} className="overflow-hidden">
-                      <Link 
-                        to={link.path} 
+                      <Link
+                        to={link.path}
                         onClick={() => setIsOpen(false)}
-                        className={`relative block text-4xl sm:text-5xl font-heading font-extrabold tracking-tight transition-all duration-300 group ${isActive ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]' : 'text-white hover:text-gray-300'}`}
+                        className={`relative block text-4xl sm:text-5xl font-heading font-extrabold tracking-tight transition-all duration-300 group ${isActive ? 'text-[#00d4ff]' : 'text-white hover:text-gray-300'}`}
                       >
-                        <span className="relative z-10">{link.name}</span>
+                        <span className="relative z-10 flex items-center justify-center gap-4">
+                          {link.name}
+                          {isActive && <motion.div layoutId="activeIndicator" className="w-2 h-2 rounded-full bg-[#00d4ff]" />}
+                        </span>
                         {!isActive && (
-                           <span className="absolute -left-8 top-1/2 -translate-y-1/2 text-[#00d4ff] opacity-0 group-hover:opacity-100 group-hover:-left-12 transition-all duration-300">
-                             <ArrowUpRight size={32} />
-                           </span>
+                          <span className="absolute -left-8 top-1/2 -translate-y-1/2 text-[#00d4ff] opacity-0 group-hover:opacity-100 group-hover:-left-12 transition-all duration-300">
+                            <ArrowUpRight size={32} />
+                          </span>
                         )}
                       </Link>
                     </motion.div>
-                   );
+                  );
                 })}
               </div>
 
@@ -170,10 +178,10 @@ const Navbar: React.FC = () => {
                     { Icon: Github, href: "https://github.com/harshdzn" },
                     { Icon: Linkedin, href: "#" },
                     { Icon: Instagram, href: "#" },
-                    { Icon: MessageCircle, href: "https://wa.me/91XXXXXXXXXX" }
+                    { Icon: MessageCircle, href: "https://wa.me/+918088727376" }
                   ].map(({ Icon, href }, i) => (
-                    <a 
-                      key={i} 
+                    <a
+                      key={i}
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
